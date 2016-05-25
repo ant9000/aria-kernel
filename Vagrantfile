@@ -7,6 +7,7 @@ Vagrant.configure(2) do |config|
     vb.memory = 1024
     vb.cpus = 8
   end
+  config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
   config.vm.provision "shell", inline: <<-SHELL
     # setup base cross-build machine
     cp /vagrant/sources.list /etc/apt/
@@ -18,7 +19,7 @@ Vagrant.configure(2) do |config|
     apt-get -y dist-upgrade 
     apt-get -y install build-essential crossbuild-essential-armel git libncurses5-dev
   SHELL
-  config.vm.provision "shell", privileged: "false", inline: <<-SHELL
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
     git config --global user.name vagrant
     git config --global user.email vagrant@vagrant
     # download and prepare the kernel stuff
