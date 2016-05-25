@@ -4,19 +4,19 @@ set -e
 BASE=$(dirname $(realpath $0))
 cd $BASE
 
+########################################
+MAKE_ARGS="ARCH=arm CROSS_COMPILE=arm-linux-gnueabi-"
+CPU_COUNT=`grep -c processor /proc/cpuinfo || true`
+if [ $CPU_COUNT -gt 0 ]; then
+  MAKE_ARGS="-j$CPU_COUNT $MAKE_ARGS"
+fi
+
 if [ ! -d build ]; then
   mkdir -p build
   cd linux-4.4.10/
   make mrproper
   make O=../build $MAKE_ARGS acme-aria_defconfig
   cd $BASE
-fi
-
-########################################
-MAKE_ARGS="ARCH=arm CROSS_COMPILE=arm-linux-gnueabi-"
-CPU_COUNT=`grep -c processor /proc/cpuinfo || true`
-if [ $CPU_COUNT -gt 0 ]; then
-  MAKE_ARGS="-j$CPU_COUNT $MAKE_ARGS"
 fi
 
 cd $BASE/build
