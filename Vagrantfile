@@ -13,11 +13,12 @@ Vagrant.configure(2) do |config|
     cp /vagrant/sources.list /etc/apt/
     chown root.root /etc/apt/sources.list
     echo "Acquire::Retries 5;" > /etc/apt/apt.conf.d/55retry-downloads
-    dpkg --add-architecture armel
-    apt-get update
-    apt-get -y install emdebian-archive-keyring
     apt-get update
     apt-get dist-upgrade
+    apt-get -y install curl
+    curl http://emdebian.org/tools/debian/emdebian-toolchain-archive.key | apt-key add -
+    dpkg --add-architecture armel
+    apt-get update
     apt-get -y install build-essential crossbuild-essential-armel git libncurses5-dev
   SHELL
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
