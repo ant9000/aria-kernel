@@ -29,16 +29,16 @@ Vagrant.configure(2) do |config|
     cd /home/vagrant
     mkdir downloads
     cd downloads 
-    wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.10.tar.xz
-    wget https://raw.githubusercontent.com/AcmeSystems/acmepatches/master/linux-4.4.9.patch
+    wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.16.tar.xz
+    wget https://raw.githubusercontent.com/AcmeSystems/acmepatches/master/linux-4.4.16.patch
     cd ..
-    tar xf downloads/linux-4.4.10.tar.xz
-    cd linux-4.4.10
+    tar xf downloads/linux-4.4.16.tar.xz
+    cd linux-4.4.16
     git init .
     git add .
     git commit -m "Linux vanilla"
     git checkout -b acme
-    patch -p1 < ../downloads/linux-4.4.9.patch
+    patch -p1 < ../downloads/linux-4.4.16.patch
     git add .
     git commit -m "ACME configs, dts and LCD panels" -a
     cd ..

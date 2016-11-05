@@ -13,7 +13,7 @@ fi
 
 if [ ! -d build ]; then
   mkdir -p build
-  cd linux-4.4.10/
+  cd linux-4.4.16/
   make mrproper
   make O=../build $MAKE_ARGS acme-aria_defconfig
   cd $BASE
