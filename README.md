@@ -5,8 +5,8 @@ Updated for Linux kernel 4.4.10.
 
 ## prerequisites
 
-- Vagrant, with plugin vagrant-vbguest (``vagrant plugin install vagrant-vbguest``)
-- VirtualBox
+- [Vagrant](https://www.vagrantup.com/downloads.html), with plugin vagrant-vbguest (``vagrant plugin install vagrant-vbguest``)
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - internet connectivity
 
 ## usage
@@ -24,7 +24,7 @@ The current folder on the host will be synced with `/vagrant` inside the VM.
 ## Kernel
 
 Kernel stuff is organized as follows:
-- /home/vagrant/linux-4.4.10 contains the kernel tree
+- /home/vagrant/linux-4.4.16 contains the kernel tree
 - /home/vagrant/build is the out-of-tree build directory
 
 To produce a custom kernel:
