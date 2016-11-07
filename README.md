@@ -1,7 +1,7 @@
 # aria-kernel
 
 This Vagrantfile creates a Debian Jessie VM, preparing it as a cross-compiling machine for Acmesystems Aria G25.
-Updated for Linux kernel 4.4.10.
+Updated for Linux kernel 4.4.16.
 
 ## prerequisites
 
