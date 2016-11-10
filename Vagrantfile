@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
     chown root.root /etc/apt/sources.list
     echo "Acquire::Retries 5;" > /etc/apt/apt.conf.d/55retry-downloads
     apt-get update
-    apt-get dist-upgrade
+    apt-get -y dist-upgrade
     apt-get -y install curl
     curl http://emdebian.org/tools/debian/emdebian-toolchain-archive.key | apt-key add -
     dpkg --add-architecture armel
